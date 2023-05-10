@@ -12,6 +12,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 
+import INHERITANCE.abstract_class_inheritance.AnimalAbstrac;
+import INHERITANCE.abstract_class_inheritance.DogInherits;
+import INHERITANCE.interface_inheritance.Animal;
+import INHERITANCE.interface_inheritance.Cat;
+import INHERITANCE.interface_inheritance.Dog;
+
 public class Main{
     // visibilidad, static es una extra
     // , void porque no retorna nada
@@ -277,34 +283,31 @@ public class Main{
          * sulameniento son aspectos clave de OOP.
          */
 
-        Animal dog = new Dog();
-        dog.sound(); // Output: Woof!
-            
-        Animal cat = new Cat();
-        cat.sound(); // Output: Meow!
+         /* En este caso heredan de interfaces 
+          * usando la palabra reservada 'implements'
+          * en el caso de Dog, hace uso de una implementación
+          * de dos interfaces. 
+          */
+        // Guarda con usar de tipo Animal para este
+        // acordate que usamos dos interfaces
+         Dog dog = new Dog();
+         dog.sound();
+         dog.getJauria();
+         // Acá podemos usar Animal, porque Cat es clase hija de Animal
+         Animal cat = new Cat();
+         cat.sound(); // Output: Meow!
+
+
+        /*
+        *  ABSTRACT INHERITANCE
+        */
+        AnimalAbstrac dogAbstract = new DogInherits("Dog");
+        dogAbstract.makeSound();
+        dogAbstract.eat();
 
     }
 
-    // Interface
-    interface Animal {
-        void sound();
-    }
-
-    // Class implementing the interface
-    class Dog implements Animal {
-        @Override
-        public void sound() {
-            System.out.println("Woof!");
-        }
-    }
-
-    class Cat implements Animal {
-        @Override
-        public void sound() {
-            System.out.println("Meow!");
-        }
-    }
-
+    
 
 
 }
