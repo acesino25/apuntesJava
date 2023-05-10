@@ -8,7 +8,9 @@
  * y tras ello ejecutamos el comando java Main
  */
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 
 public class Main{
     // visibilidad, static es una extra
@@ -199,17 +201,110 @@ public class Main{
         for (int i = 0; i < numberss.length; i++) {
             newNumbers[i] = numberss[i];
         }
+        // 2) Asigamos al respectivo index el nuevo elemento
         newNumbers[numberss.length] = 6;
         numberss = newNumbers;
 
-        // print the updated contents of the array
+        // imprimimos el nuevo array
         for (int i = 0; i < numberss.length; i++) {
             System.out.println(numberss[i]);
         }
 
+
+
+        // ARRAYLIST
+        /*
+         * Comparado con el array, este incluye métodos propios
+         * para agregar y/o eliminar elementos:
+         * add() y remove()
+         */
+        ArrayList<Integer> numbersArr = new ArrayList<Integer>();
+        numbersArr.add(1);
+        numbersArr.add(2);
+        numbersArr.add(3);
+        System.out.println(numbersArr); // output: [1, 2, 3]
+        numbersArr.remove(1);
+        System.out.println(numbersArr); // output: [1, 3]
+
+        // LINKEDLIST
+        /*
+         * Sirve para remover elementos en el medio
+         * debido a su enlace con otros nodos del mismo array
+         * comparado con la arraylist la manera de almacenamiento
+         * de éste tipo está distribuido, y no es correlativo
+         */
+        LinkedList<String> namess = new LinkedList<String>();
+        namess.add("John");
+        namess.add("Mary");
+        namess.add("Peter");
+        System.out.println(namess); // output: [John, Mary, Peter]
+        namess.remove("Mary");
+        System.out.println(namess); // output: [John, Peter]
+
+        /*
+         * TENEMOS OTRO TIPO DE COLLECTIONS QUE DEJAREMOS ESCRITO:
+         * HashSet: An implementation of the Set interface that uses a hash table to store elements. 
+         * Elements are not ordered and duplicates are not allowed. 
+         * Example: 
+         * HashSet<Double>.
+         * 
+         * TreeSet: An implementation of the SortedSet interface that uses a Red-Black tree to store elements. 
+         * Elements are ordered according to their natural order or a specified Comparator. Duplicates are not allowed. 
+         * Example: 
+         * TreeSet<String>.
+         * 
+         * HashMap: An implementation of the Map interface that uses a hash table to store key-value pairs.
+         * Keys are not ordered and duplicates are not allowed. 
+         * Example:
+         * HashMap<String, Integer>.
+         * 
+         * TreeMap: An implementation of the SortedMap interface that uses
+         * a Red-Black tree to store key-value pairs. Keys are ordered according to
+         * their natural order or a specified Comparator. Duplicates are not allowed. 
+         * Example: 
+         * TreeMap<Integer, String>.
+         */
+
+
+        /*
+         * INHERITANCE
+         * la herencia es un concepto de la OOP
+         * es una manera de crear la clases a partir de
+         * la reutilización de otros elementos como clases
+         * o interfaces
+         * 
+         * La herencia al igual que el polimorfismo y el encap-
+         * sulameniento son aspectos clave de OOP.
+         */
+
+        Animal dog = new Dog();
+        dog.sound(); // Output: Woof!
+            
+        Animal cat = new Cat();
+        cat.sound(); // Output: Meow!
+
     }
 
-    
+    // Interface
+    interface Animal {
+        void sound();
+    }
+
+    // Class implementing the interface
+    class Dog implements Animal {
+        @Override
+        public void sound() {
+            System.out.println("Woof!");
+        }
+    }
+
+    class Cat implements Animal {
+        @Override
+        public void sound() {
+            System.out.println("Meow!");
+        }
+    }
+
 
 
 }
